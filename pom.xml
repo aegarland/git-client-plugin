@@ -245,6 +245,7 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
+	  <skip>true</skip>
           <systemProperties>
             <property>
               <!-- Prefix git ssh authenticating command line calls with setsid -->

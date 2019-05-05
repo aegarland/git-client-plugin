@@ -995,8 +995,7 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
 
             @Override
             public void execute() throws GitException, InterruptedException {
-                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "whatchanged", "--no-abbrev", "-M");
-                args.add("--format="+RAW);
+                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "log", "--raw", "--no-abbrev", "-M");
                 if (n!=null)
                     args.add("-n").add(n);
                 for (String rev : this.revs)
