@@ -1,0 +1,13 @@
+diff --git a/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java b/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java
+index 47202442..31eb1aee 100644
+--- a/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java
++++ b/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java
+@@ -1192,7 +1192,7 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
+ 
+             @Override
+             public void execute() throws GitException, InterruptedException {
+-                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "whatchanged", "--no-abbrev", "-M");
++                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "log", "--raw", "--no-abbrev", "-M");
+                 if (isAtLeastVersion(1, 8, 3, 0)) {
+                     args.add("--format="+RAW);
+                 } else {
