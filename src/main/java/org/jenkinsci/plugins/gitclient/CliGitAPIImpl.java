@@ -1199,7 +1199,7 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
 
             @Override
             public void execute() throws GitException, InterruptedException {
-                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "log", "--raw", "--no-abbrev", "-M");
+                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "log", "--no-abbrev", "-M");
                 if (isAtLeastVersion(1, 8, 3, 0)) {
                     args.add("--format="+RAW);
                 } else {
