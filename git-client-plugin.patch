@@ -11,3 +11,16 @@ index 47202442..31eb1aee 100644
                  if (isAtLeastVersion(1, 8, 3, 0)) {
                      args.add("--format="+RAW);
                  } else {
+diff --git a/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java b/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java
+index 1c7cfc6d..a9dc797a 100644
+--- a/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java
++++ b/src/main/java/org/jenkinsci/plugins/gitclient/CliGitAPIImpl.java
+@@ -1213,6 +1213,8 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
+ 
+                 if (out==null)  throw new IllegalStateException();
+ 
++		listener.getLogger().println("Using changelog command: "+args);
++
+                 // "git whatchanged" std output gives us byte stream of data
+                 // Commit messages in that byte stream are UTF-8 encoded.
+                 // We want to decode bytestream to strings using UTF-8 encoding.
