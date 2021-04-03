@@ -1196,7 +1196,7 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
 
             @Override
             public void execute() throws GitException, InterruptedException {
-                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "whatchanged", "--no-abbrev", "-M");
+                ArgumentListBuilder args = new ArgumentListBuilder(gitExe, "log", "--no-abbrev", "-M");
                 if (isAtLeastVersion(1, 8, 3, 0)) {
                     args.add("--format="+RAW);
                 } else {
@@ -1209,6 +1209,8 @@ public class CliGitAPIImpl extends LegacyCompatibleGitAPIImpl {
                     args.add(rev);
 
                 if (out==null)  throw new IllegalStateException();
+
+		listener.getLogger().println("Using changelog command: "+args);
 
                 // "git whatchanged" std output gives us byte stream of data
                 // Commit messages in that byte stream are UTF-8 encoded.
